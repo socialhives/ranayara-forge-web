@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,7 +11,7 @@ import {
   TableHeader, 
   TableRow 
 } from "@/components/ui/table";
-import { Factory, Tool, Wrench, CircleArrowDown } from "lucide-react";
+import { Factory, Settings, Wrench, CircleArrowDown } from "lucide-react";
 import gearImage from "../assets/gear-manufacturing.jpg";
 import spmImage from "../assets/spm-automation.jpg";
 import pressImage from "../assets/press-shop.jpg";
@@ -24,10 +23,10 @@ const Catalog = () => {
     { id: "all", name: "All Solutions", icon: Factory },
     { id: "ai-solution", name: "AI Solutions", icon: Factory },
     { id: "ev-manufacturing", name: "EV Manufacturing", icon: Factory },
-    { id: "mold-engineering", name: "Mold & Engineering", icon: Tool },
+    { id: "mold-engineering", name: "Mold & Engineering", icon: Settings },
     { id: "tools-die", name: "Tools, Dies & Engineering", icon: Wrench },
     { id: "automation-robotics", name: "Automation & Robotics", icon: Factory },
-    { id: "jigs-fixtures", name: "Jigs & Fixtures", icon: Tool },
+    { id: "jigs-fixtures", name: "Jigs & Fixtures", icon: Settings },
   ];
 
   const products = [
