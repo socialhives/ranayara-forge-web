@@ -9,25 +9,45 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Industrial Machine Blue */
+    --primary: 214 84% 56%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Steel Gray */
+    --secondary: 215 16% 47%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Electric Yellow accent */
+    --accent: 48 96% 53%;
+    --accent-foreground: 215 25% 27%;
+
+    /* Industrial gradients and custom colors */
+    --steel-dark: 215 25% 27%;
+    --steel-light: 220 14% 96%;
+    --machine-blue: 214 84% 56%;
+    --electric-yellow: 48 96% 53%;
+    
+    /* Gradients */
+    --gradient-industrial: linear-gradient(135deg, hsl(var(--steel-dark)), hsl(var(--machine-blue)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--steel-dark) / 0.9), hsl(var(--machine-blue) / 0.8));
+    
+    /* Shadows */
+    --shadow-industrial: 0 10px 30px -5px hsl(var(--steel-dark) / 0.3);
+    --shadow-card: 0 4px 6px -1px hsl(var(--steel-dark) / 0.1);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;

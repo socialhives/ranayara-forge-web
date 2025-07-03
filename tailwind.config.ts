@@ -52,6 +52,17 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Industrial color palette
+				steel: {
+					dark: 'hsl(var(--steel-dark))',
+					light: 'hsl(var(--steel-light))'
+				},
+				machine: {
+					blue: 'hsl(var(--machine-blue))'
+				},
+				electric: {
+					yellow: 'hsl(var(--electric-yellow))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
