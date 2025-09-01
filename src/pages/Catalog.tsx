@@ -165,24 +165,46 @@ const Catalog = () => {
     {
       id: 12,
       category: "jigs-fixtures",
-      name: "Precision Machining Fixtures",
-      description: "Custom-designed fixtures for high-precision machining operations",
+      name: "Precision Testing Fixtures",
+      description: "High-accuracy testing and measurement fixtures with pneumatic controls for automotive components",
       image: pressImage,
-      specifications: ["Modular Design", "Quick Clamping", "Repeatability: ±0.005mm", "Hardened Components"],
-      applications: ["CNC Machining", "Grinding Operations", "Inspection"],
-      features: ["Easy Setup", "Consistent Positioning", "Reduced Cycle Time"],
-      brochure: "/brochures/machining-fixtures.pdf"
+      specifications: ["Pneumatic Clamping", "Digital Display Integration", "Repeatability: ±0.001mm", "Multi-Point Testing"],
+      applications: ["Quality Control", "Dimensional Testing", "Component Validation"],
+      features: ["Automated Positioning", "Data Logging", "Quick Setup"],
+      brochure: "/brochures/testing-fixtures.pdf"
     },
     {
       id: 13,
       category: "jigs-fixtures",
-      name: "Welding Jigs & Fixtures",
-      description: "Specialized jigs and fixtures for welding and fabrication processes",
+      name: "Hydraulic Assembly Fixtures",
+      description: "Heavy-duty hydraulic fixtures with electronic controls for automotive manufacturing",
       image: gearImage,
-      specifications: ["Heat Resistant", "Adjustable Positioning", "Clamping Systems", "Distortion Control"],
-      applications: ["Structural Welding", "Fabrication", "Assembly Operations"],
-      features: ["Precise Alignment", "Repeatable Setup", "Quality Consistency"],
-      brochure: "/brochures/welding-fixtures.pdf"
+      specifications: ["Hydraulic Clamping Force: 50kN", "PLC Control System", "Safety Interlocks", "Multi-Station Setup"],
+      applications: ["Automotive Assembly", "Heavy Component Handling", "Production Lines"],
+      features: ["Automated Operation", "Safety Systems", "High Throughput"],
+      brochure: "/brochures/hydraulic-fixtures.pdf"
+    },
+    {
+      id: 14,
+      category: "jigs-fixtures",
+      name: "Electronic Control Fixtures",
+      description: "Smart fixtures with integrated sensors and wireless communication for Industry 4.0 applications",
+      image: spmImage,
+      specifications: ["IoT Connectivity", "Real-time Monitoring", "Wireless Data Transfer", "Smart Sensors"],
+      applications: ["Smart Manufacturing", "Process Monitoring", "Quality Assurance"],
+      features: ["Remote Monitoring", "Predictive Maintenance", "Data Analytics"],
+      brochure: "/brochures/electronic-fixtures.pdf"
+    },
+    {
+      id: 15,
+      category: "jigs-fixtures",
+      name: "Progressive Die Fixtures",
+      description: "Complex progressive die systems for automotive panel manufacturing with precision tooling",
+      image: pressImage,
+      specifications: ["Multi-Stage Operation", "Tool Steel Construction", "Progressive Forming", "High-Speed Operation"],
+      applications: ["Automotive Panels", "Metal Stamping", "Mass Production"],
+      features: ["Continuous Operation", "High Precision", "Long Tool Life"],
+      brochure: "/brochures/progressive-dies.pdf"
     }
   ];
 
