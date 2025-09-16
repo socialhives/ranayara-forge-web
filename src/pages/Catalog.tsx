@@ -143,7 +143,7 @@ const Catalog = () => {
       category: "automation-robotics",
       name: "Robotic Assembly Line",
       description: "Fully automated assembly line with industrial robots and vision systems",
-      image: spmImage,
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041795/auto2_lcwgqr.jpg",
       specifications: ["6-Axis Robots", "Vision Guidance", "PLC Control", "Safety Systems"],
       applications: ["Automotive Assembly", "Electronics Production", "Packaging"],
       features: ["Flexible Programming", "High Speed Operation", "Quality Assurance"],
@@ -154,11 +154,44 @@ const Catalog = () => {
       category: "automation-robotics",
       name: "Material Handling Automation",
       description: "Automated material handling systems with conveyor integration",
-      image: gearImage,
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto1_zj06wt.jpg",
       specifications: ["Conveyor Systems", "AGV Integration", "RFID Tracking", "WMS Integration"],
       applications: ["Warehouse Automation", "Production Lines", "Distribution Centers"],
       features: ["Real-time Tracking", "Inventory Management", "Scalable Design"],
       brochure: "/brochures/material-handling.pdf"
+    },
+    {
+      id: 16,
+      category: "automation-robotics",
+      name: "CNC Machining Centers",
+      description: "Advanced CNC machining centers with automated tool changing and precision control",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto5_kmzhsu.jpg",
+      specifications: ["Multi-Axis Control", "Automatic Tool Changer", "High Precision Spindle", "Coolant System"],
+      applications: ["Precision Machining", "Prototype Development", "Small Batch Production"],
+      features: ["Computer Controlled", "High Accuracy", "Flexible Setup"],
+      brochure: "/brochures/cnc-machining.pdf"
+    },
+    {
+      id: 17,
+      category: "automation-robotics",
+      name: "Automated Quality Control Systems",
+      description: "Integrated quality control systems with automated inspection and measurement",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto8_ssmj9o.jpg",
+      specifications: ["Vision Inspection", "Coordinate Measuring", "Statistical Process Control", "Automated Reporting"],
+      applications: ["Quality Assurance", "Dimensional Inspection", "Process Monitoring"],
+      features: ["Real-time Analysis", "Automated Documentation", "Error Detection"],
+      brochure: "/brochures/quality-control.pdf"
+    },
+    {
+      id: 18,
+      category: "automation-robotics",
+      name: "Industrial Automation Solutions",
+      description: "Complete industrial automation packages with PLC control and HMI interfaces",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto3_gnt48r.jpg",
+      specifications: ["PLC Programming", "HMI Touch Screens", "Variable Frequency Drives", "Safety Interlocks"],
+      applications: ["Process Automation", "Production Control", "System Integration"],
+      features: ["Centralized Control", "Remote Monitoring", "Energy Efficient"],
+      brochure: "/brochures/industrial-automation.pdf"
     },
 
     // Jigs & Fixtures Solutions
