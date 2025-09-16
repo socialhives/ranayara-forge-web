@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
   Table, 
   TableBody, 
@@ -11,7 +9,7 @@ import {
   TableHeader, 
   TableRow 
 } from "@/components/ui/table";
-import { Factory, Settings, Wrench, CircleArrowDown } from "lucide-react";
+import { Factory, Settings, Wrench } from "lucide-react";
 import gearImage from "../assets/gear-manufacturing.jpg";
 import spmImage from "../assets/spm-automation.jpg";
 import pressImage from "../assets/press-shop.jpg";
@@ -318,87 +316,18 @@ const Catalog = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
-              <Card key={product.id} className="group overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border-0 shadow-lg">
+              <Card key={product.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md">
                 <div className="aspect-video overflow-hidden relative">
                   <img 
                     src={product.image} 
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <h3 className="text-white font-bold text-lg leading-tight">{product.name}</h3>
+                  </div>
                 </div>
-                <CardHeader className="pb-4">
-                  <div className="flex justify-between items-start mb-3">
-                    <CardTitle className="text-xl font-bold group-hover:text-primary transition-colors">
-                      {product.name}
-                    </CardTitle>
-                    <Badge variant="secondary" className="text-xs font-medium">
-                      {categories.find(c => c.id === product.category)?.name}
-                    </Badge>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">{product.description}</p>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <Tabs defaultValue="specs" className="w-full">
-                    <TabsList className="grid w-full grid-cols-3">
-                      <TabsTrigger value="specs" className="text-xs">Specs</TabsTrigger>
-                      <TabsTrigger value="apps" className="text-xs">Apps</TabsTrigger>
-                      <TabsTrigger value="features" className="text-xs">Features</TabsTrigger>
-                    </TabsList>
-                    
-                    <TabsContent value="specs" className="space-y-2">
-                      <ul className="text-sm space-y-2">
-                        {product.specifications.map((spec, index) => (
-                          <li key={index} className="flex items-start">
-                            <span className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span className="text-muted-foreground">{spec}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </TabsContent>
-                    
-                    <TabsContent value="apps" className="space-y-2">
-                      <div className="flex flex-wrap gap-2">
-                        {product.applications.map((app, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {app}
-                          </Badge>
-                        ))}
-                      </div>
-                    </TabsContent>
-                    
-                    <TabsContent value="features" className="space-y-2">
-                      {product.features && (
-                        <div className="flex flex-wrap gap-2">
-                          {product.features.map((feature, index) => (
-                            <Badge key={index} variant="secondary" className="text-xs">
-                              {feature}
-                            </Badge>
-                          ))}
-                        </div>
-                      )}
-                    </TabsContent>
-                  </Tabs>
-                  
-                  <div className="flex gap-3 pt-4">
-                    <Button 
-                      size="sm" 
-                      variant="outline"
-                      onClick={() => downloadBrochure(product.brochure, product.name)}
-                      className="flex-1 hover:bg-primary/10 transition-colors"
-                    >
-                      <CircleArrowDown className="w-4 h-4 mr-1" />
-                      Brochure
-                    </Button>
-                    <Button 
-                      size="sm" 
-                      onClick={() => getQuote(product.name)}
-                      className="flex-1 bg-gradient-to-r from-primary to-machine-blue hover:from-primary/90 hover:to-machine-blue/90"
-                    >
-                      Get Quote
-                    </Button>
-                  </div>
-                </CardContent>
               </Card>
             ))}
           </div>
@@ -418,13 +347,11 @@ const Catalog = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {capabilities.map((capability, index) => (
-              <Card key={index} className="text-center p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50">
-                <CardContent className="p-0">
+                <Card key={index} className="text-center p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-white to-gray-50">
                   <div className="text-4xl font-bold text-primary mb-3">{capability.metric}</div>
                   <div className="text-lg font-semibold mb-2">{capability.label}</div>
                   <div className="text-sm text-muted-foreground">{capability.sublabel}</div>
-                </CardContent>
-              </Card>
+                </Card>
             ))}
           </div>
         </div>
