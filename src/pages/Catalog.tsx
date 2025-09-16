@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { 
   Table, 
   TableBody, 
@@ -10,7 +11,7 @@ import {
   TableHeader, 
   TableRow 
 } from "@/components/ui/table";
-import { Factory, Settings, Wrench, X, Cog, Zap, TestTube, Building, Truck } from "lucide-react";
+import { Factory, Settings, Wrench, X, Cog, Zap, TestTube, Building, Truck, Menu } from "lucide-react";
 import gearImage from "../assets/gear-manufacturing.jpg";
 import spmImage from "../assets/spm-automation.jpg";
 import pressImage from "../assets/press-shop.jpg";
@@ -334,7 +335,45 @@ const Catalog = () => {
       {/* Enhanced Category Navigation */}
       <section className="py-12 bg-muted/30 sticky top-16 z-40 backdrop-blur-md border-b">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Mobile Category Menu */}
+          <div className="md:hidden mb-4">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" className="w-full justify-start">
+                  <Menu className="w-4 h-4 mr-2" />
+                  {categories.find(cat => cat.id === selectedCategory)?.name || "All Solutions"}
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-80 bg-gradient-to-br from-primary/5 to-machine-blue/5">
+                <div className="mt-8">
+                  <h3 className="text-lg font-semibold mb-6 text-foreground">Select Category</h3>
+                  <div className="space-y-2">
+                    {categories.map((category) => {
+                      const IconComponent = category.icon;
+                      return (
+                        <Button
+                          key={category.id}
+                          variant={selectedCategory === category.id ? "default" : "ghost"}
+                          className={`w-full justify-start text-left h-auto py-4 px-4 ${
+                            selectedCategory === category.id 
+                              ? "bg-primary text-primary-foreground shadow-lg" 
+                              : "hover:bg-muted"
+                          }`}
+                          onClick={() => setSelectedCategory(category.id)}
+                        >
+                          <IconComponent className="w-5 h-5 mr-3" />
+                          <span className="text-sm font-medium">{category.name}</span>
+                        </Button>
+                      );
+                    })}
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+
+          {/* Desktop Category Navigation */}
+          <div className="hidden md:flex flex-wrap justify-center gap-3">
             {categories.map((category) => {
               const IconComponent = category.icon;
               return (
