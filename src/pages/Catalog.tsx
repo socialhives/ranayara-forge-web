@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { 
   Table, 
   TableBody, 
@@ -9,22 +10,25 @@ import {
   TableHeader, 
   TableRow 
 } from "@/components/ui/table";
-import { Factory, Settings, Wrench } from "lucide-react";
+import { Factory, Settings, Wrench, X, Cog, Zap, TestTube, Building, Truck } from "lucide-react";
 import gearImage from "../assets/gear-manufacturing.jpg";
 import spmImage from "../assets/spm-automation.jpg";
 import pressImage from "../assets/press-shop.jpg";
 
 const Catalog = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [fullScreenImage, setFullScreenImage] = useState<string | null>(null);
 
   const categories = [
     { id: "all", name: "All Solutions", icon: Factory },
     { id: "ai-solution", name: "AI Solutions", icon: Factory },
-    { id: "ev-manufacturing", name: "EV Manufacturing", icon: Factory },
-    { id: "mold-engineering", name: "Mold & Engineering", icon: Settings },
+    { id: "automation-robotics", name: "Automation & Robotics", icon: Cog },
+    { id: "ev-manufacturing", name: "E-Rickshaw Manufacturing", icon: Truck },
+    { id: "electronics-testing", name: "Electronics Parts Testing", icon: TestTube },
+    { id: "machine-structure", name: "Machine Structure", icon: Building },
     { id: "tools-die", name: "Tools, Dies & Engineering", icon: Wrench },
     { id: "robotics-welding", name: "Robotics Welding & Structure", icon: Factory },
-    { id: "lithium-battery", name: "Lithium Battery Box", icon: Settings },
+    { id: "lithium-battery", name: "Lithium Battery Box", icon: Zap },
     { id: "jigs-fixtures", name: "Jigs & Fixtures & Stainless", icon: Settings },
   ];
 
@@ -34,141 +38,190 @@ const Catalog = () => {
       id: 1,
       category: "ai-solution",
       name: "AI-Powered Quality Control System",
-      description: "Advanced machine learning algorithms for real-time defect detection and quality assurance",
       image: spmImage,
-      specifications: ["Deep Learning Models", "Real-time Processing", "99.8% Accuracy Rate", "Cloud Integration"],
-      applications: ["Automotive QC", "Electronics Testing", "Metal Forming Inspection"],
-      features: ["Computer Vision", "Predictive Analytics", "Process Optimization"],
-      brochure: "/brochures/ai-quality-control.pdf"
     },
     {
       id: 2,
       category: "ai-solution",
       name: "Smart Manufacturing Analytics Platform",
-      description: "IoT-enabled data analytics for production optimization and predictive maintenance",
       image: gearImage,
-      specifications: ["IoT Sensors Integration", "Machine Learning Analytics", "Real-time Dashboard", "Mobile App"],
-      applications: ["Production Monitoring", "Predictive Maintenance", "Energy Optimization"],
-      features: ["Data Visualization", "Alert Systems", "Performance Tracking"],
-      brochure: "/brochures/smart-analytics.pdf"
     },
 
-    // EV Manufacturing
+    // Automation & Robotics  
     {
       id: 3,
-      category: "ev-manufacturing",
-      name: "E-Rickshaw Manufacturing Line",
-      description: "Complete production setup for electric rickshaws with battery integration systems",
-      image: pressImage,
-      specifications: ["3-Wheeler Design", "48V Battery System", "Load Capacity: 500kg", "Range: 80-100km"],
-      applications: ["Urban Transportation", "Last Mile Delivery", "Commercial Use"],
-      features: ["Lightweight Frame", "Weather Protection", "Easy Maintenance"],
-      brochure: "/brochures/e-rickshaw.pdf"
+      category: "automation-robotics",
+      name: "Automated Production System 1",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041795/auto2_lcwgqr.jpg",
     },
     {
       id: 4,
-      category: "ev-manufacturing",
-      name: "E-Cart Loader Production",
-      description: "Heavy-duty electric cart loaders for industrial material handling applications",
-      image: spmImage,
-      specifications: ["Load Capacity: 1000kg", "72V Battery System", "Hydraulic Lifting", "8-hour Operation"],
-      applications: ["Warehouse Operations", "Factory Material Handling", "Construction Sites"],
-      features: ["Robust Construction", "Easy Loading", "Silent Operation"],
-      brochure: "/brochures/e-cart-loader.pdf"
+      category: "automation-robotics", 
+      name: "Automated Production System 2",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto1_zj06wt.jpg",
     },
     {
       id: 5,
-      category: "ev-manufacturing",
-      name: "E-Scooty Assembly Line",
-      description: "Modern electric scooter manufacturing with smart connectivity features",
-      image: gearImage,
-      specifications: ["Lithium-ion Battery", "60km Range", "Smart Connectivity", "Regenerative Braking"],
-      applications: ["Personal Transportation", "Food Delivery", "Urban Commuting"],
-      features: ["Smartphone Integration", "GPS Tracking", "Anti-theft System"],
-      brochure: "/brochures/e-scooty.pdf"
+      category: "automation-robotics",
+      name: "Automated Production System 3", 
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto5_kmzhsu.jpg",
     },
-
-    // Mold and Engineering Solutions
     {
       id: 6,
-      category: "mold-engineering",
-      name: "Precision Injection Molds",
-      description: "High-precision injection molds for automotive and consumer electronics applications",
-      image: pressImage,
-      specifications: ["Multi-cavity Design", "Hot Runner System", "Cycle Time: 15-30 sec", "Tolerance: ±0.02mm"],
-      applications: ["Automotive Parts", "Electronics Housing", "Consumer Products"],
-      features: ["Quick Mold Change", "Energy Efficient", "Long Tool Life"],
-      brochure: "/brochures/injection-molds.pdf"
+      category: "automation-robotics",
+      name: "Automated Production System 4",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto8_ssmj9o.jpg",
     },
     {
       id: 7,
-      category: "mold-engineering",
-      name: "Die Casting Solutions",
-      description: "Complete die casting setup for aluminum and zinc alloy components",
-      image: gearImage,
-      specifications: ["Aluminum & Zinc Alloys", "High Pressure Casting", "Automated Trimming", "Surface Finishing"],
-      applications: ["Engine Components", "Housing Parts", "Heat Sinks"],
-      features: ["Dimensional Accuracy", "Surface Quality", "High Volume Production"],
-      brochure: "/brochures/die-casting.pdf"
+      category: "automation-robotics",
+      name: "Automated Production System 5",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto3_gnt48r.jpg",
     },
 
-    // Tools, Dies & Engineering Solutions
+    // E-Rickshaw Manufacturing
     {
       id: 8,
-      category: "tools-die",
-      name: "Progressive Stamping Dies",
-      description: "Advanced progressive dies for complex automotive stamping operations",
-      image: pressImage,
-      specifications: ["Multi-stage Operation", "Carbide Inserts", "Stroke Rate: 200 SPM", "Tool Life: 2M+ hits"],
-      applications: ["Body Panels", "Structural Components", "Brackets"],
-      features: ["Precision Engineering", "Quick Setup", "Consistent Quality"],
-      brochure: "/brochures/progressive-dies.pdf"
+      category: "ev-manufacturing",
+      name: "E-Rickshaw Assembly Line 1",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043490/ebc0e818-84c4-42ea-b992-76cd92be9f45.png",
     },
     {
       id: 9,
+      category: "ev-manufacturing",
+      name: "E-Rickshaw Assembly Line 2",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043508/8a1faeba-18f6-441d-b406-e6d85b17872e.png",
+    },
+    {
+      id: 10,
+      category: "ev-manufacturing", 
+      name: "E-Rickshaw Assembly Line 3",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043528/92b0f32d-ab36-40b3-819a-1404488f32f6.png",
+    },
+
+    // Electronics Parts Testing
+    {
+      id: 11,
+      category: "electronics-testing",
+      name: "Electronics Testing Unit 1",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043148/10ab887a-b495-486d-8533-0a682362822e.png",
+    },
+    {
+      id: 12,
+      category: "electronics-testing",
+      name: "Electronics Testing Unit 2",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043168/a9178157-9a4a-41b9-bdd0-d387ebab9a0b.png",
+    },
+    {
+      id: 13,
+      category: "electronics-testing",
+      name: "Electronics Testing Unit 3",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043211/324716ab-d219-461f-9aab-753a13b202d1.png",
+    },
+    {
+      id: 14,
+      category: "electronics-testing",
+      name: "Electronics Testing Unit 4",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043287/f5e1becc-22ec-425b-817f-a534cbbf50d4.png",
+    },
+
+    // Machine Structure
+    {
+      id: 15,
+      category: "machine-structure",
+      name: "Machine Structure 1",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043356/7eab7b14-508d-4731-88a3-6a28bad7d075.png",
+    },
+    {
+      id: 16,
+      category: "machine-structure",
+      name: "Machine Structure 2", 
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043380/4f2a1c06-b3e1-480f-b5f7-a54d553296a8.png",
+    },
+    {
+      id: 17,
+      category: "machine-structure",
+      name: "Machine Structure 3",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043403/04b2d23e-e850-40fe-af97-e48146dbe2a2.png",
+    },
+
+    // Tools, Dies & Engineering
+    {
+      id: 18,
       category: "tools-die",
-      name: "Custom Cutting Tools",
-      description: "Specialized cutting tools designed for specific machining applications",
-      image: spmImage,
-      specifications: ["HSS & Carbide", "Custom Geometry", "Coated Options", "Special Applications"],
-      applications: ["CNC Machining", "Drilling Operations", "Threading"],
-      features: ["Extended Tool Life", "Superior Finish", "Cost Effective"],
-      brochure: "/brochures/cutting-tools.pdf"
+      name: "Precision Tool 1",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043576/3c80a250-0738-4387-aacf-ca6d49f1506b.png",
+    },
+    {
+      id: 19,
+      category: "tools-die", 
+      name: "Precision Tool 2",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043603/444abfd4-85ff-40e9-92e7-2a2d029b82af.png",
+    },
+    {
+      id: 20,
+      category: "tools-die",
+      name: "Precision Tool 3", 
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043628/d09377cc-c8f8-4092-a2ab-7db6c2662c41.png",
+    },
+    {
+      id: 21,
+      category: "tools-die",
+      name: "Precision Tool 4",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043665/770ecbac-14f2-4512-b194-75396ef464be.png",
+    },
+    {
+      id: 22,
+      category: "tools-die",
+      name: "Precision Tool 5",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043692/7a5ec3f8-4334-4958-98ee-5ddbaf02bde7.png",
+    },
+    {
+      id: 23,
+      category: "tools-die",
+      name: "Precision Tool 6", 
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043723/59092d64-d007-4229-8672-96befcbf8c00.png",
+    },
+    {
+      id: 24,
+      category: "tools-die",
+      name: "Precision Tool 7",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043733/4381614e-7560-4442-91cb-98a9b2b213e9.png",
     },
 
     // Robotics Welding & Structure
     {
-      id: 10,
+      id: 25,
       category: "robotics-welding",
       name: "Automated Welding Station",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042211/11bcc363-1b34-4e2d-8569-57d51e40c7f6.png",
     },
     {
-      id: 11,
+      id: 26,
       category: "robotics-welding",
       name: "Structural Frame Assembly",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042296/b894df2f-1e7d-4d07-afd4-0590c570fccd.png",
     },
     {
-      id: 16,
+      id: 27,
       category: "robotics-welding",
       name: "Precision Welding Robot",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042321/bc89474e-1cd3-41aa-8fa9-41058c8a3fe2.png",
     },
     {
-      id: 17,
+      id: 28,
       category: "robotics-welding",
       name: "Heavy Duty Welding System",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042344/912503d4-17db-4124-a83f-64ce1d1a4c8f.png",
     },
     {
-      id: 18,
+      id: 29,
       category: "robotics-welding",
       name: "Multi-Axis Welding Platform",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042378/4650cc5f-12ba-4887-9d9a-8378f448a2fb.png",
     },
     {
-      id: 19,
+      id: 30,
       category: "robotics-welding",
       name: "Industrial Welding Center",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042425/0d78028d-823b-4e13-b5a0-ba894de3a614.png",
@@ -176,25 +229,25 @@ const Catalog = () => {
 
     // Lithium Battery Box
     {
-      id: 20,
+      id: 31,
       category: "lithium-battery",
       name: "Battery Pack Assembly",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042497/16b2fd73-3a17-4c77-ae9a-90b05843c76a.png",
     },
     {
-      id: 21,
+      id: 32,
       category: "lithium-battery",
       name: "Battery Housing System",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042538/91f1558f-c215-49be-b825-490af1e6e410.png",
     },
     {
-      id: 22,
+      id: 33,
       category: "lithium-battery",
       name: "Battery Testing Unit",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042544/fdd787b1-59f5-4fde-b289-0f70c997e7fb.png",
     },
     {
-      id: 23,
+      id: 34,
       category: "lithium-battery",
       name: "Battery Management Solution",
       image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042657/0668277e-6041-4977-852a-9b2973f74bac.png",
@@ -202,28 +255,34 @@ const Catalog = () => {
 
     // Jigs & Fixtures & Stainless
     {
-      id: 12,
+      id: 35,
       category: "jigs-fixtures",
-      name: "Precision Testing Fixtures",
-      image: pressImage,
+      name: "Precision Fixture 1",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043011/9f116ebc-e2f9-4deb-8d65-2ea8bfaa6771.png",
     },
     {
-      id: 13,
+      id: 36,
       category: "jigs-fixtures",
-      name: "Hydraulic Assembly Fixtures",
-      image: gearImage,
+      name: "Precision Fixture 2",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043037/071d67eb-2e26-4b85-b51a-ae540f76e518.png",
     },
     {
-      id: 14,
+      id: 37,
       category: "jigs-fixtures",
-      name: "Electronic Control Fixtures",
-      image: spmImage,
+      name: "Precision Fixture 3",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043057/6a0e9637-6325-4643-8ddb-6cb0bd240823.png",
     },
     {
-      id: 15,
+      id: 38,
       category: "jigs-fixtures",
-      name: "Progressive Die Fixtures",
-      image: pressImage,
+      name: "Precision Fixture 4",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043057/6a0e9637-6325-4643-8ddb-6cb0bd240823.png",
+    },
+    {
+      id: 39,
+      category: "jigs-fixtures",
+      name: "Precision Fixture 5",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758043101/9ba88426-0b79-4fe8-8780-6d48b0422105.png",
     }
   ];
 
@@ -305,17 +364,17 @@ const Catalog = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {filteredProducts.map((product) => (
               <Card key={product.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-0 shadow-md">
-                <div className="aspect-video overflow-hidden relative">
-                  <img 
-                    src={product.image} 
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-white font-bold text-lg leading-tight">{product.name}</h3>
-                  </div>
-                </div>
+                 <div className="aspect-video overflow-hidden relative cursor-pointer" onClick={() => setFullScreenImage(product.image)}>
+                   <img 
+                     src={product.image} 
+                     alt={product.name}
+                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   />
+                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                   <div className="absolute bottom-4 left-4 right-4">
+                     <h3 className="text-white font-bold text-lg leading-tight">{product.name}</h3>
+                   </div>
+                 </div>
               </Card>
             ))}
           </div>
@@ -430,6 +489,27 @@ const Catalog = () => {
           </div>
         </div>
       </section>
+
+      {/* Full Screen Image Modal */}
+      <Dialog open={!!fullScreenImage} onOpenChange={() => setFullScreenImage(null)}>
+        <DialogContent className="max-w-7xl w-full h-full max-h-screen p-0 bg-black/95 border-0">
+          <div className="relative w-full h-full flex items-center justify-center">
+            <button
+              onClick={() => setFullScreenImage(null)}
+              className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+            >
+              <X size={24} />
+            </button>
+            {fullScreenImage && (
+              <img
+                src={fullScreenImage}
+                alt="Full screen view"
+                className="max-w-full max-h-full object-contain"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
