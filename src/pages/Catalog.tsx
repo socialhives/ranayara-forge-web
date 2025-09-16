@@ -23,8 +23,9 @@ const Catalog = () => {
     { id: "ev-manufacturing", name: "EV Manufacturing", icon: Factory },
     { id: "mold-engineering", name: "Mold & Engineering", icon: Settings },
     { id: "tools-die", name: "Tools, Dies & Engineering", icon: Wrench },
-    { id: "automation-robotics", name: "Automation & Robotics", icon: Factory },
-    { id: "jigs-fixtures", name: "Jigs & Fixtures", icon: Settings },
+    { id: "robotics-welding", name: "Robotics Welding & Structure", icon: Factory },
+    { id: "lithium-battery", name: "Lithium Battery Box", icon: Settings },
+    { id: "jigs-fixtures", name: "Jigs & Fixtures & Stainless", icon: Settings },
   ];
 
   const products = [
@@ -135,107 +136,94 @@ const Catalog = () => {
       brochure: "/brochures/cutting-tools.pdf"
     },
 
-    // Automation & Robotics Solutions
+    // Robotics Welding & Structure
     {
       id: 10,
-      category: "automation-robotics",
-      name: "Robotic Assembly Line",
-      description: "Fully automated assembly line with industrial robots and vision systems",
-      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041795/auto2_lcwgqr.jpg",
-      specifications: ["6-Axis Robots", "Vision Guidance", "PLC Control", "Safety Systems"],
-      applications: ["Automotive Assembly", "Electronics Production", "Packaging"],
-      features: ["Flexible Programming", "High Speed Operation", "Quality Assurance"],
-      brochure: "/brochures/robotic-assembly.pdf"
+      category: "robotics-welding",
+      name: "Automated Welding Station",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042211/11bcc363-1b34-4e2d-8569-57d51e40c7f6.png",
     },
     {
       id: 11,
-      category: "automation-robotics",
-      name: "Material Handling Automation",
-      description: "Automated material handling systems with conveyor integration",
-      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto1_zj06wt.jpg",
-      specifications: ["Conveyor Systems", "AGV Integration", "RFID Tracking", "WMS Integration"],
-      applications: ["Warehouse Automation", "Production Lines", "Distribution Centers"],
-      features: ["Real-time Tracking", "Inventory Management", "Scalable Design"],
-      brochure: "/brochures/material-handling.pdf"
+      category: "robotics-welding",
+      name: "Structural Frame Assembly",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042296/b894df2f-1e7d-4d07-afd4-0590c570fccd.png",
     },
     {
       id: 16,
-      category: "automation-robotics",
-      name: "CNC Machining Centers",
-      description: "Advanced CNC machining centers with automated tool changing and precision control",
-      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto5_kmzhsu.jpg",
-      specifications: ["Multi-Axis Control", "Automatic Tool Changer", "High Precision Spindle", "Coolant System"],
-      applications: ["Precision Machining", "Prototype Development", "Small Batch Production"],
-      features: ["Computer Controlled", "High Accuracy", "Flexible Setup"],
-      brochure: "/brochures/cnc-machining.pdf"
+      category: "robotics-welding",
+      name: "Precision Welding Robot",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042321/bc89474e-1cd3-41aa-8fa9-41058c8a3fe2.png",
     },
     {
       id: 17,
-      category: "automation-robotics",
-      name: "Automated Quality Control Systems",
-      description: "Integrated quality control systems with automated inspection and measurement",
-      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto8_ssmj9o.jpg",
-      specifications: ["Vision Inspection", "Coordinate Measuring", "Statistical Process Control", "Automated Reporting"],
-      applications: ["Quality Assurance", "Dimensional Inspection", "Process Monitoring"],
-      features: ["Real-time Analysis", "Automated Documentation", "Error Detection"],
-      brochure: "/brochures/quality-control.pdf"
+      category: "robotics-welding",
+      name: "Heavy Duty Welding System",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042344/912503d4-17db-4124-a83f-64ce1d1a4c8f.png",
     },
     {
       id: 18,
-      category: "automation-robotics",
-      name: "Industrial Automation Solutions",
-      description: "Complete industrial automation packages with PLC control and HMI interfaces",
-      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758041794/auto3_gnt48r.jpg",
-      specifications: ["PLC Programming", "HMI Touch Screens", "Variable Frequency Drives", "Safety Interlocks"],
-      applications: ["Process Automation", "Production Control", "System Integration"],
-      features: ["Centralized Control", "Remote Monitoring", "Energy Efficient"],
-      brochure: "/brochures/industrial-automation.pdf"
+      category: "robotics-welding",
+      name: "Multi-Axis Welding Platform",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042378/4650cc5f-12ba-4887-9d9a-8378f448a2fb.png",
+    },
+    {
+      id: 19,
+      category: "robotics-welding",
+      name: "Industrial Welding Center",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042425/0d78028d-823b-4e13-b5a0-ba894de3a614.png",
     },
 
-    // Jigs & Fixtures Solutions
+    // Lithium Battery Box
+    {
+      id: 20,
+      category: "lithium-battery",
+      name: "Battery Pack Assembly",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042497/16b2fd73-3a17-4c77-ae9a-90b05843c76a.png",
+    },
+    {
+      id: 21,
+      category: "lithium-battery",
+      name: "Battery Housing System",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042538/91f1558f-c215-49be-b825-490af1e6e410.png",
+    },
+    {
+      id: 22,
+      category: "lithium-battery",
+      name: "Battery Testing Unit",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042544/fdd787b1-59f5-4fde-b289-0f70c997e7fb.png",
+    },
+    {
+      id: 23,
+      category: "lithium-battery",
+      name: "Battery Management Solution",
+      image: "https://res.cloudinary.com/dch0uyw8e/image/upload/v1758042657/0668277e-6041-4977-852a-9b2973f74bac.png",
+    },
+
+    // Jigs & Fixtures & Stainless
     {
       id: 12,
       category: "jigs-fixtures",
       name: "Precision Testing Fixtures",
-      description: "High-accuracy testing and measurement fixtures with pneumatic controls for automotive components",
       image: pressImage,
-      specifications: ["Pneumatic Clamping", "Digital Display Integration", "Repeatability: ±0.001mm", "Multi-Point Testing"],
-      applications: ["Quality Control", "Dimensional Testing", "Component Validation"],
-      features: ["Automated Positioning", "Data Logging", "Quick Setup"],
-      brochure: "/brochures/testing-fixtures.pdf"
     },
     {
       id: 13,
       category: "jigs-fixtures",
       name: "Hydraulic Assembly Fixtures",
-      description: "Heavy-duty hydraulic fixtures with electronic controls for automotive manufacturing",
       image: gearImage,
-      specifications: ["Hydraulic Clamping Force: 50kN", "PLC Control System", "Safety Interlocks", "Multi-Station Setup"],
-      applications: ["Automotive Assembly", "Heavy Component Handling", "Production Lines"],
-      features: ["Automated Operation", "Safety Systems", "High Throughput"],
-      brochure: "/brochures/hydraulic-fixtures.pdf"
     },
     {
       id: 14,
       category: "jigs-fixtures",
       name: "Electronic Control Fixtures",
-      description: "Smart fixtures with integrated sensors and wireless communication for Industry 4.0 applications",
       image: spmImage,
-      specifications: ["IoT Connectivity", "Real-time Monitoring", "Wireless Data Transfer", "Smart Sensors"],
-      applications: ["Smart Manufacturing", "Process Monitoring", "Quality Assurance"],
-      features: ["Remote Monitoring", "Predictive Maintenance", "Data Analytics"],
-      brochure: "/brochures/electronic-fixtures.pdf"
     },
     {
       id: 15,
       category: "jigs-fixtures",
       name: "Progressive Die Fixtures",
-      description: "Complex progressive die systems for automotive panel manufacturing with precision tooling",
       image: pressImage,
-      specifications: ["Multi-Stage Operation", "Tool Steel Construction", "Progressive Forming", "High-Speed Operation"],
-      applications: ["Automotive Panels", "Metal Stamping", "Mass Production"],
-      features: ["Continuous Operation", "High Precision", "Long Tool Life"],
-      brochure: "/brochures/progressive-dies.pdf"
     }
   ];
 
@@ -391,10 +379,22 @@ const Catalog = () => {
                   <TableCell>Electric Drive, Battery Systems</TableCell>
                 </TableRow>
                 <TableRow className="hover:bg-muted/50">
-                  <TableCell className="font-medium">Automation & Robotics</TableCell>
-                  <TableCell>Assembly Lines, Material Handling</TableCell>
-                  <TableCell>Production, Warehouse Automation</TableCell>
-                  <TableCell>Industrial Robots, Vision Systems</TableCell>
+                  <TableCell className="font-medium">Robotics Welding & Structure</TableCell>
+                  <TableCell>Welding Stations, Frame Assembly</TableCell>
+                  <TableCell>Manufacturing, Structural Assembly</TableCell>
+                  <TableCell>Robotics, Welding Technology</TableCell>
+                </TableRow>
+                <TableRow className="hover:bg-muted/50">
+                  <TableCell className="font-medium">Lithium Battery Box</TableCell>
+                  <TableCell>Battery Packs, Housing Systems</TableCell>
+                  <TableCell>Energy Storage, EV Systems</TableCell>
+                  <TableCell>Battery Technology, Testing</TableCell>
+                </TableRow>
+                <TableRow className="hover:bg-muted/50">
+                  <TableCell className="font-medium">Jigs & Fixtures & Stainless</TableCell>
+                  <TableCell>Testing Fixtures, Assembly Tools</TableCell>
+                  <TableCell>Quality Control, Production</TableCell>
+                  <TableCell>Precision Engineering, Automation</TableCell>
                 </TableRow>
                 <TableRow className="hover:bg-muted/50">
                   <TableCell className="font-medium">Tools & Dies</TableCell>
